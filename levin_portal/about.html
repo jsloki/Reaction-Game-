@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Über mich</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .about-box { background:#1a1a1a; padding:20px; border-radius:10px; margin:20px auto; max-width:600px; text-align:left; }
+    .shoe-gallery { display:flex; justify-content:center; gap:30px; margin-top:20px; flex-wrap:wrap; }
+    .shoe-gallery img { width:250px; border-radius:12px; transition:transform 0.3s ease; border:2px solid #444; }
+    .shoe-gallery img:hover { transform:scale(1.05); }
+  </style>
+</head>
+<body>
+  
+<nav>
+  <a href="index.html">Home</a>
+  <a href="about.html">Über mich</a>
+  <a href="games.html">Spiele</a>
+  <a href="contact.html">Kontakt</a>
+  <a href="secret.html">🔒 Geheim</a>
+</nav>
+
+  <section id="about">
+    <h2>🙋 Über mich</h2>
+    <div class="about-box">
+      <p><b>Name:</b> Levin</p>
+      <p><b>Alter:</b> <span id="age"></span> Jahre</p>
+      <p><b>Größe:</b> 187 cm</p>
+      <p><b>Sport:</b> 800m-Leichtathletik (Leistungssport)</p>
+      <p><b>Aktuelle Bestzeit:</b> 2:06 Minuten</p>
+      <p><b>Ziel:</b> Unter 2:00 Minuten – langfristig 1:45 bis Olympia 2028 in Los Angeles 🏅</p>
+      <p><b>Training:</b> ca. 8x pro Woche</p>
+    </div>
+    <h3>👟 Meine Wettkampfschuhe</h3>
+    <div class="shoe-gallery">
+      <div>
+        <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/0e7db7db-3e6f-4a76-9e19-fc0c7288a863/air-zoom-victory-2-spike-running-shoes.png" alt="Nike Victory 2">
+        <p>Nike Victory 2</p>
+      </div>
+      <div>
+        <img src="https://static.nike.com/a/images/t_PDP_1280_v1/f_auto,q_auto:eco/e8d2a97f-3d67-471d-a556-6ff46c6a6c73/air-zoom-victory-eliud-kipchoge.png" alt="Nike Air Zoom Victory Eliud Kipchoge">
+        <p>Nike Air Zoom Victory Eliud Kipchoge</p>
+      </div>
+    </div>
+  </section>
+  <script>
+    const birthDate = new Date(2006, 3, 4);
+    const today = new Date();
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const hasHadBirthday =
+      today.getMonth() > birthDate.getMonth() ||
+      (today.getMonth() === birthDate.getMonth() && today.getDate() >= birthDate.getDate());
+    if (!hasHadBirthday) { age--; }
+    document.getElementById("age").textContent = age;
+  </script>
+</body>
+</html>
