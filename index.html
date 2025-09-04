@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Reaction Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: #222;
+      color: white;
+      text-align: center;
+    }
+    #gameBox {
+      width: 80%;
+      height: 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: red;
+      border-radius: 15px;
+      cursor: pointer;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      user-select: none;
+    }
+    #scoreboard {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>⚡ Reaction Game ⚡</h1>
+  <div id="gameBox">Klicke, um zu starten</div>
+  <div id="scoreboard"></div>
+
+  <script>
+    let gameBox = document.getElementById("gameBox");
+    let scoreboard = document.getElementById("scoreboard");
+
+    let startTime, timeout, playing = false;
+    let best = Infinity;
+
+    function startGame() {
+      gameBox.textContent = "Warte auf GRÜN...";
+      gameBox.style.backgroundColor = "red";
+      playing = true;
+
+      timeout = setTimeout(() => {
+        gameBox.style.backgroundColor = "green";
+        gameBox.textContent = "JETZT!";
+        startTime = Date.now();
+      }, Math.random() * 4000 + 2000); // 2–6 Sek.
+    }
+
+    function clickBox() {
+      if (!playing) {
+        startGame();
+        return;
+      }
+      if (gameBox.style.backgroundColor === "green") {
+        let reaction = Date.now() - startTime;
+        best = Math.min(best, reaction);
+        gameBox.textContent = `Deine Zeit: ${reaction} ms`;
+        scoreboard.textContent = `🏆 Bestzeit: ${best} ms`;
+        gameBox.style.backgroundColor = "blue";
+        playing = false;
+        clearTimeout(timeout);
+      } else if (gameBox.style.backgroundColor === "red") {
+        gameBox.textContent = "Zu früh! Versuche es nochmal.";
+        gameBox.style.backgroundColor = "orange";
+        playing = false;
+        clearTimeout(timeout);
+      }
+    }
+
+    gameBox.addEventListener("click", clickBox);
+  </script>
+</body>
+</html>
