@@ -5,21 +5,42 @@
   <title>Über mich</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .about-box { background:#1a1a1a; padding:20px; border-radius:10px; margin:20px auto; max-width:600px; text-align:left; }
-    .shoe-gallery { display:flex; justify-content:center; gap:30px; margin-top:20px; flex-wrap:wrap; }
-    .shoe-gallery img { width:250px; border-radius:12px; transition:transform 0.3s ease; border:2px solid #444; }
-    .shoe-gallery img:hover { transform:scale(1.05); }
+    .about-box {
+      background:#1a1a1a;
+      padding:20px;
+      border-radius:10px;
+      margin:20px auto;
+      max-width:600px;
+      text-align:left;
+      box-shadow:0 0 15px rgba(0,0,0,0.6);
+    }
+    .shoe-gallery {
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      margin-top:20px;
+      flex-wrap:wrap;
+    }
+    .shoe-gallery img {
+      width:250px;
+      border-radius:12px;
+      transition:transform 0.3s ease;
+      border:2px solid #444;
+      box-shadow:0 0 15px rgba(0,0,0,0.5);
+    }
+    .shoe-gallery img:hover {
+      transform:scale(1.05);
+    }
   </style>
 </head>
 <body>
-  
-<nav>
-  <a href="index.html">Home</a>
-  <a href="about.html">Über mich</a>
-  <a href="games.html">Spiele</a>
-  <a href="contact.html">Kontakt</a>
-  <a href="secret.html">🔒 Geheim</a>
-</nav>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">Über mich</a>
+    <a href="games.html">Spiele</a>
+    <a href="contact.html">Kontakt</a>
+    <a href="secret.html">🔒 Geheim</a>
+  </nav>
 
   <section id="about">
     <h2>🙋 Über mich</h2>
@@ -32,6 +53,7 @@
       <p><b>Ziel:</b> Unter 2:00 Minuten – langfristig 1:45 bis Olympia 2028 in Los Angeles 🏅</p>
       <p><b>Training:</b> ca. 8x pro Woche</p>
     </div>
+
     <h3>👟 Meine Wettkampfschuhe</h3>
     <div class="shoe-gallery">
       <div>
@@ -44,6 +66,7 @@
       </div>
     </div>
   </section>
+
   <script>
     const birthDate = new Date(2006, 3, 4);
     const today = new Date();
